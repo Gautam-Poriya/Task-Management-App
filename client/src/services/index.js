@@ -23,3 +23,27 @@ export const callUserAuthApi=async ()=>{
     })
     return response?.data;
 }
+
+export const callLogOutApi=async()=>{
+    const response =await axios.post('http://localhost:5001/api/user/logout',{},{
+        withCredentials: true,
+    })
+    return response?.data;
+};
+
+export const addNewTaskApi=async (formData) => {
+    const response=await axios.post('http://localhost:5001/api/task/add-new-task',formData)
+    return response?.data;
+}
+export const getAllTaskApi=async(getCurrentUserId)=>{
+    console.log(getCurrentUserId,"user id from fronted")
+     const response=await axios.get(`http://localhost:5001/api/task/get-all-tasks-by-userid/${getCurrentUserId}`)
+     console.log("response of all Task",response)
+    return response?.data;
+}
+export const updateTaskApi=async(formData)=>{
+    
+}
+export const deleteTaskApi=async(formData)=>{
+    
+}

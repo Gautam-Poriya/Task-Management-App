@@ -1,7 +1,8 @@
-// JzkEFSqotz8nh8sF
+
 const express = require("express");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/user-routes");
+const taskRouter = require("./routes/task-routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("./database");
@@ -19,12 +20,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/user", userRouter);
-app.use("/api", (req, res) => {
-  res.status(200).json({
-    message: "Hello express",
-  });
-});
+app.use("/api/task",taskRouter)
+// app.use("/api", (req, res) => {
+//   res.status(200).json({
+//     message: "Hello express",
+//   });
+// });
 
 app.listen(5001, () => {
-  console.log(`server is running at: http://localhost:5000`);
+  console.log(`server is running at: http://localhost:5001`);
 });
