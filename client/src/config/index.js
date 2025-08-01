@@ -46,11 +46,11 @@ export const scrumBoardOptions=[
     label:"To Do",
   },
   {
-    id:'In Progress',
+    id:'inProgress',
     label:"In Progress",
   },
   {
-    id:'Blocked',
+    id:'blocked',
     label:"Blocked",
   },
   {
@@ -58,7 +58,7 @@ export const scrumBoardOptions=[
     label:"review",
   },
   {
-    id:'Done',
+    id:'done',
     label:"Done",
   },
 ]

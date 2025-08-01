@@ -42,8 +42,12 @@ export const getAllTaskApi=async(getCurrentUserId)=>{
     return response?.data;
 }
 export const updateTaskApi=async(formData)=>{
-    
+     const response=await axios.put(`http://localhost:5001/api/task/update-task`,formData)
+     console.log("response of Update Task",response)
+    return response?.data;
 }
-export const deleteTaskApi=async(formData)=>{
-    
+export const deleteTaskApi=async(getCurrentUserId)=>{
+     const response=await axios.delete(`http://localhost:5001/api/task/delete-task/${getCurrentUserId}`)
+     console.log("response of delete Task",response)
+    return response?.data;
 }

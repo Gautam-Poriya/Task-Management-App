@@ -1,5 +1,5 @@
 // import Task from "../models/task-model.js";
-const Task=require('../models/task')
+const Task = require("../models/task");
 //add new task
 const addNewTask = async (req, res) => {
   const { title, description, status, userId, priority } = await req.body;
@@ -37,7 +37,7 @@ const addNewTask = async (req, res) => {
 //get all task by user id
 
 const getAllTasks = async (req, res) => {
-  const {id}  = req.params;
+  const { id } = req.params;
   const extractAllTaskByUserId = await Task.find({ userId: id });
   try {
     if (extractAllTaskByUserId) {
@@ -62,14 +62,69 @@ const getAllTasks = async (req, res) => {
 };
 //edit a task
 const updateTask = async (req, res) => {
+  const {title,description,status,priority,userId,_id}=await req.body;
+  try{
+    const updateTask=await Task.findByIdAndUpdate({
+      _id,
+    },{
+      title,description,priority,status,userId
+    },{new:true})
 
+    if(updateTask){
+       return res.status(200).json({
+        success: "true",
+        message: "task Updataed  successfully",
+        // tasksList: extractAllTaskByUserId,
+      });
+    }else{
+       return res.status(400).json({
+      success: "false",
+      message: "Some error occured while Upadate The  task",
+    });
+    }
+
+  }catch(error){
+     console.log(error);
+    return res.status(500).json({
+      success: "false",
+      message: "Some error occured while Update The  task",
+    });
+  }
 };
 //delete a task
-const deleteTask = async (req, res) => {};
+const deleteTask = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (!id) {
+      return res.status(400).json({
+        success: "false",
+        message: "Task Id Is Required",
+      });
+    }
+    const deleteTask = await Task.findByIdAndDelete(id);
+    if (deleteTask) {
+      return res.status(200).json({
+        success: "True",
+        message: "Task Deleted Successfully",
+      });
+    }else{
+       return res.status(400).json({
+      success: "false",
+      message: "Some error occured while  Delete The  task",
+    });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: "false",
+      message: "Some error occured while  Delete The  task",
+    });
+  }
+};
 
-module.exports={
-    addNewTask,
-    getAllTasks,
-    updateTask,
-    deleteTask
-}
+module.exports = {
+  addNewTask,
+  getAllTasks,
+  updateTask,
+  deleteTask,
+};

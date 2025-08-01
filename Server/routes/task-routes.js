@@ -9,8 +9,8 @@ taskRouter.post('/add-new-task',addNewTask);
 
 taskRouter.get('/get-all-tasks-by-userid/:id',getAllTasks);
 
-// taskRouter.post('/add',addNewTask);
+taskRouter.put('/update-task',updateTask);
 
-// taskRouter.post('/add',addNewTask);
+ taskRouter.delete('/delete-task/:id',deleteTask);
 
 module.exports=taskRouter

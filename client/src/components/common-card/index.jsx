@@ -12,7 +12,7 @@ function CommonCard({title,description,extraTextStyles,footerContent,content,hea
           <div className="flex justify-between">
             {title ? (
               <CardTitle
-                className={`text-2xl max-w-[250px] text-ellipse overflow-hidden whitespace-nowrap font-semibold text-gray-950 ${
+                className={`text-2xl max-w-[250px] text-ellipse  font-semibold text-gray-950 ${
                   extraTextStyles ? extraTextStyles : ""
                 }`}
               >
