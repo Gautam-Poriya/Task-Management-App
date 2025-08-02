@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
-mongoose.connect("mongodb+srv://gautamporiya1234:DRtURrlA5a9jX9N9@cluster0.sycfiww.mongodb.net/")
+require('dotenv').config();
+mongoose.connect(`${process.env.MONGO_URI}`)
 .then(()=>{
     console.log('Mongodb databse connection sucessful');
 }).catch((err)=>{
