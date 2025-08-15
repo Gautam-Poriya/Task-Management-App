@@ -12,7 +12,7 @@ function App() {
 
   return (
    <Routes>
-    <Route path="/auth" element={<AuthPage/>}/>
+    <Route path="/" element={<AuthPage/>}/>
     <Route path="/tasks" element={<CommonLayout/>}>
     <Route path="list" element={<TasksPage/>}/>
      <Route path="scrum-board" element={<ScrumBoardPage/>}/>
