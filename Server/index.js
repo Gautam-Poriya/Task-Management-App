@@ -10,7 +10,7 @@ const app = express();
 // app.use(cors());
 
 app.use(cors({
-    origin: ["http://localhost:5173","https://task-management-app-frotend.onrender.com"],
+    origin: ["http://localhost:5173","https://task-management-app-frotend.onrender.com","https://task-management-app-frontend-3dby.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
